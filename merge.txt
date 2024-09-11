@@ -1,0 +1,492 @@
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops (master)
+$ git clone https://github.com/Y21ACS451/merge.git
+Cloning into 'merge'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (3/3), done.
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops (master)
+$ cd merge
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ ls
+Text.txt
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git branch feature1
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git checkout feature1
+Switched to branch 'feature1'
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ vi Edit.txt
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ cat Edit
+cat: Edit: No such file or directory
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ cat Edit.txt
+This is a edited file.
+
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git log
+commit 53af20ec41e6a368be9c453c0d0d86a3e5edb3a1 (HEAD -> main, origin/main, origin/HEAD, feature1)
+Author: Y21ACS451 <srikanthgottimukkala451@gmail.com>
+Date:   Wed Sep 4 08:20:21 2024 +0530
+
+    Create Text.txt
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ ls
+Edit.txt  Text.txt
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Edit.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git add Edit.txt
+warning: in the working copy of 'Edit.txt', LF will be replaced by CRLF the next time Git touches it
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git log
+commit 53af20ec41e6a368be9c453c0d0d86a3e5edb3a1 (HEAD -> main, origin/main, origin/HEAD, feature1)
+Author: Y21ACS451 <srikanthgottimukkala451@gmail.com>
+Date:   Wed Sep 4 08:20:21 2024 +0530
+
+    Create Text.txt
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   Edit.txt
+
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git commit -m "commit1"
+[main e0d4743] commit1
+ Committer: y21acs451 <y21acs451@win2k18.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 2 insertions(+)
+ create mode 100644 Edit.txt
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git log
+commit e0d47439e44a079087f06b37bc71a6432d4b6f22 (HEAD -> main)
+Author: y21acs451 <y21acs451@win2k18.local>
+Date:   Wed Sep 4 08:26:03 2024 +0530
+
+    commit1
+
+commit 53af20ec41e6a368be9c453c0d0d86a3e5edb3a1 (origin/main, origin/HEAD, feature1)
+Author: Y21ACS451 <srikanthgottimukkala451@gmail.com>
+Date:   Wed Sep 4 08:20:21 2024 +0530
+
+    Create Text.txt
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git checkout feature1
+Switched to branch 'feature1'
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ git log
+commit 53af20ec41e6a368be9c453c0d0d86a3e5edb3a1 (HEAD -> feature1, origin/main, origin/HEAD)
+Author: Y21ACS451 <srikanthgottimukkala451@gmail.com>
+Date:   Wed Sep 4 08:20:21 2024 +0530
+
+    Create Text.txt
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ ls
+Text.txt
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ git merge main
+Updating 53af20e..e0d4743
+Fast-forward
+ Edit.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 Edit.txt
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ git log
+commit e0d47439e44a079087f06b37bc71a6432d4b6f22 (HEAD -> feature1, main)
+Author: y21acs451 <y21acs451@win2k18.local>
+Date:   Wed Sep 4 08:26:03 2024 +0530
+
+    commit1
+
+commit 53af20ec41e6a368be9c453c0d0d86a3e5edb3a1 (origin/main, origin/HEAD)
+Author: Y21ACS451 <srikanthgottimukkala451@gmail.com>
+Date:   Wed Sep 4 08:20:21 2024 +0530
+
+    Create Text.txt
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ vi newfile
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ cat newfile
+This is a newfile.
+created for making changes in feature1 branch.
+
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ git status
+On branch feature1
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        newfile
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ git add newfile
+warning: in the working copy of 'newfile', LF will be replaced by CRLF the next time Git touches it
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ git commit -m "this is the 1st commit in branch feature1"
+[feature1 921c601] this is the 1st commit in branch feature1
+ Committer: y21acs451 <y21acs451@win2k18.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 3 insertions(+)
+ create mode 100644 newfile
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ git status
+On branch feature1
+nothing to commit, working tree clean
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ git log
+commit 921c6019cbbc647de751431f31b2bb777267ae40 (HEAD -> feature1)
+Author: y21acs451 <y21acs451@win2k18.local>
+Date:   Wed Sep 4 08:38:30 2024 +0530
+
+    this is the 1st commit in branch feature1
+
+commit e0d47439e44a079087f06b37bc71a6432d4b6f22 (main)
+Author: y21acs451 <y21acs451@win2k18.local>
+Date:   Wed Sep 4 08:26:03 2024 +0530
+
+    commit1
+
+commit 53af20ec41e6a368be9c453c0d0d86a3e5edb3a1 (origin/main, origin/HEAD)
+Author: Y21ACS451 <srikanthgottimukkala451@gmail.com>
+Date:   Wed Sep 4 08:20:21 2024 +0530
+
+    Create Text.txt
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ git main
+git: 'main' is not a git command. See 'git --help'.
+
+The most similar command is
+        mailinfo
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git log
+commit e0d47439e44a079087f06b37bc71a6432d4b6f22 (HEAD -> main)
+Author: y21acs451 <y21acs451@win2k18.local>
+Date:   Wed Sep 4 08:26:03 2024 +0530
+
+    commit1
+
+commit 53af20ec41e6a368be9c453c0d0d86a3e5edb3a1 (origin/main, origin/HEAD)
+Author: Y21ACS451 <srikanthgottimukkala451@gmail.com>
+Date:   Wed Sep 4 08:20:21 2024 +0530
+
+    Create Text.txt
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git merge feature1
+Updating e0d4743..921c601
+Fast-forward
+ newfile | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 newfile
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git log
+commit 921c6019cbbc647de751431f31b2bb777267ae40 (HEAD -> main, feature1)
+Author: y21acs451 <y21acs451@win2k18.local>
+Date:   Wed Sep 4 08:38:30 2024 +0530
+
+    this is the 1st commit in branch feature1
+
+commit e0d47439e44a079087f06b37bc71a6432d4b6f22
+Author: y21acs451 <y21acs451@win2k18.local>
+Date:   Wed Sep 4 08:26:03 2024 +0530
+
+    commit1
+
+commit 53af20ec41e6a368be9c453c0d0d86a3e5edb3a1 (origin/main, origin/HEAD)
+Author: Y21ACS451 <srikanthgottimukkala451@gmail.com>
+Date:   Wed Sep 4 08:20:21 2024 +0530
+
+    Create Text.txt
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git checkout feature1
+Switched to branch 'feature1'
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ ls
+Edit.txt  Text.txt  newfile
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ vi Text.txt
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ cat Text.txt
+This is a text file.
+This file is updated now.
+
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ git status
+On branch feature1
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Text.txt
+
+commit dc42e85a98eb35429cea1d50e0a49d37e900a84e (HEAD -> feature1)
+Author: y21acs451 <y21acs451@win2k18.local>
+Date:   Wed Sep 4 08:52:25 2024 +0530
+
+    Text.txt file MOFDIFIED
+
+commit 921c6019cbbc647de751431f31b2bb777267ae40 (main)
+Author: y21acs451 <y21acs451@win2k18.local>
+Date:   Wed Sep 4 08:38:30 2024 +0530
+
+    this is the 1st commit in branch feature1
+
+commit e0d47439e44a079087f06b37bc71a6432d4b6f22
+Author: y21acs451 <y21acs451@win2k18.local>
+Date:   Wed Sep 4 08:26:03 2024 +0530
+
+    commit1
+
+commit 53af20ec41e6a368be9c453c0d0d86a3e5edb3a1 (origin/main, origin/HEAD)
+Author: Y21ACS451 <srikanthgottimukkala451@gmail.com>
+Date:   Wed Sep 4 08:20:21 2024 +0530
+
+    Create Text.txt
+(END)...skipping...
+commit dc42e85a98eb35429cea1d50e0a49d37e900a84e (HEAD -> feature1)
+Author: y21acs451 <y21acs451@win2k18.local>
+Date:   Wed Sep 4 08:52:25 2024 +0530
+
+    Text.txt file MOFDIFIED
+
+commit 921c6019cbbc647de751431f31b2bb777267ae40 (main)
+Author: y21acs451 <y21acs451@win2k18.local>
+Date:   Wed Sep 4 08:38:30 2024 +0530
+
+    this is the 1st commit in branch feature1
+
+commit e0d47439e44a079087f06b37bc71a6432d4b6f22
+Author: y21acs451 <y21acs451@win2k18.local>
+Date:   Wed Sep 4 08:26:03 2024 +0530
+
+    commit1
+
+commit 53af20ec41e6a368be9c453c0d0d86a3e5edb3a1 (origin/main, origin/HEAD)
+Author: Y21ACS451 <srikanthgottimukkala451@gmail.com>
+Date:   Wed Sep 4 08:20:21 2024 +0530
+
+    Create Text.txt
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ git rebase main
+Current branch feature1 is up to date.
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git log
+commit 921c6019cbbc647de751431f31b2bb777267ae40 (HEAD -> main)
+Author: y21acs451 <y21acs451@win2k18.local>
+Date:   Wed Sep 4 08:38:30 2024 +0530
+
+    this is the 1st commit in branch feature1
+
+commit e0d47439e44a079087f06b37bc71a6432d4b6f22
+Author: y21acs451 <y21acs451@win2k18.local>
+Date:   Wed Sep 4 08:26:03 2024 +0530
+
+    commit1
+
+commit 53af20ec41e6a368be9c453c0d0d86a3e5edb3a1 (origin/main, origin/HEAD)
+Author: Y21ACS451 <srikanthgottimukkala451@gmail.com>
+Date:   Wed Sep 4 08:20:21 2024 +0530
+
+    Create Text.txt
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git rebase main
+Current branch main is up to date.
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git log
+commit 921c6019cbbc647de751431f31b2bb777267ae40 (HEAD -> main)
+Author: y21acs451 <y21acs451@win2k18.local>
+Date:   Wed Sep 4 08:38:30 2024 +0530
+
+    this is the 1st commit in branch feature1
+
+commit e0d47439e44a079087f06b37bc71a6432d4b6f22
+Author: y21acs451 <y21acs451@win2k18.local>
+Date:   Wed Sep 4 08:26:03 2024 +0530
+
+    commit1
+
+commit 53af20ec41e6a368be9c453c0d0d86a3e5edb3a1 (origin/main, origin/HEAD)
+Author: Y21ACS451 <srikanthgottimukkala451@gmail.com>
+Date:   Wed Sep 4 08:20:21 2024 +0530
+
+    Create Text.txt
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git rebase feature1
+Successfully rebased and updated refs/heads/main.
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git log
+commit dc42e85a98eb35429cea1d50e0a49d37e900a84e (HEAD -> main, feature1)
+Author: y21acs451 <y21acs451@win2k18.local>
+Date:   Wed Sep 4 08:52:25 2024 +0530
+
+    Text.txt file MOFDIFIED
+
+commit 921c6019cbbc647de751431f31b2bb777267ae40
+Author: y21acs451 <y21acs451@win2k18.local>
+Date:   Wed Sep 4 08:38:30 2024 +0530
+
+    this is the 1st commit in branch feature1
+
+commit e0d47439e44a079087f06b37bc71a6432d4b6f22
+Author: y21acs451 <y21acs451@win2k18.local>
+Date:   Wed Sep 4 08:26:03 2024 +0530
+
+    commit1
+
+commit 53af20ec41e6a368be9c453c0d0d86a3e5edb3a1 (origin/main, origin/HEAD)
+Author: Y21ACS451 <srikanthgottimukkala451@gmail.com>
+Date:   Wed Sep 4 08:20:21 2024 +0530
+
+    Create Text.txt
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git push origin main
+info: please complete authentication in your browser...
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (9/9), 897 bytes | 81.00 KiB/s, done.
+Total 9 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/Y21ACS451/merge.git
+   53af20e..dc42e85  main -> main
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git log --oneline
+dc42e85 (HEAD -> main, origin/main, origin/HEAD, feature1) Text.txt file MOFDIFIED
+921c601 this is the 1st commit in branch feature1
+e0d4743 commit1
+53af20e Create Text.txt
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (main)
+$ git checkout feature1
+Switched to branch 'feature1'
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ git log --oneline
+dc42e85 (HEAD -> feature1, origin/main, origin/HEAD, main) Text.txt file MOFDIFIED
+921c601 this is the 1st commit in branch feature1
+e0d4743 commit1
+53af20e Create Text.txt
+
+y21acs451@RP21SYS20 MINGW64 /z/4-1/Devops/merge (feature1)
+$ 
